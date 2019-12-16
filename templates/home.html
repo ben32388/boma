@@ -3,7 +3,7 @@
 {% load static %}
 {% block main %}
 
-<button class='float-right' type="button"
+<!--<button class='float-right' type="button"
     style="background-color: transparent;border-color: transparent;outline: none;margin:0px;" data-toggle="modal"
     data-target="#exampleModal"><i class="icon ion-md-add" style="font-size: 54px;"></i>
 </button>
@@ -31,8 +31,117 @@
 
         </div>
     </div>
+</div>-->
+
+<div class="sidebar-container">
+    <div class="sidebar-logo center">
+        <img src="static/img/logo.jpeg" class="logo-img">
+    </div>
+    <div class="sidebar-line">
+        &nbsp;
+    </div>
+    <div class="sidebar-head">
+        新增 BoMarK
+    </div>
+    <div class="sidebar-line">
+        &nbsp;
+    </div>
+    <div class="sidebar-content">
+        <div class="sidebar-font-title">
+            名稱
+        </div>
+        <div class="sidebar-font-content">
+            <input>
+        </div>
+        <div class="sidebar-font-title">
+            網址
+        </div>
+        <div class="sidebar-font-content">
+            <input>
+        </div>
+        <div class="sidebar-font-title">
+            類別
+        </div>
+        <div class="sidebar-font-content">
+            <div class="btn-group">
+                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    資料夾類別放這邊
+                </button>
+            </div>
+        </div>
+        <div class="sidebar-font-title">
+            標籤
+        </div>
+        <div class="sidebar-font-content">
+            <input>
+        </div>
+        <div class="sidebar-button">
+            <button type="submit" class="btn btn-primary">確認
+            </button>
+        </div>
+    </div>
 </div>
 
+<div class="content-container">
+    <div class="container-fluid">
+        <div class="jumbotron text-center">
+            <h1>apple 的 BoMA</h1>
+            <div class="sidebar-line">
+                &nbsp;
+            </div>
+            <br>
+            <div class="row padding-top">
+                <div class="col-6">
+                    <div class="input-group mb-4">
+                        <input type="search" aria-describedby="button-addon5" class="form-control">
+                        <div class="input-group-append">
+                            <button id="button-addon5" type="submit" class="btn btn-primary">
+                                <i class="icon ion-md-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <button type="submit" class="btn btn-primary">新增類別
+                    </button>
+                </div>
+            </div>
+            <div class="sidebar-line">
+                &nbsp;
+            </div>
+            <br>
+            <div class="row ">
+                <div class="col-8 folder-style">
+                    <a href="#">
+                        <i class="icon ion-md-folder"></i> 我的最愛
+                    </a>
+                </div>
+            </div>
+            <div class="sidebar-line">
+                    &nbsp;
+                </div>
+            <div class="row ">
+                    <div class="col-8 folder-style folder-pad">
+                        <a href="#">
+                            <i class="icon ion-md-folder"></i> XXX
+                        </a>
+                    </div>
+                    <div class="col-4">
+                        <div class="row folder-button">
+                            <div class="col">
+                                <button type="submit" class="btn btn-primary">刪除
+                                </button>
+                            </div>
+                            <div class="col">
+                                <button type="submit" class="btn btn-primary">重新命名
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
 
 
 {% endblock %}
