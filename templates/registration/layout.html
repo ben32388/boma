@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Homeset</title>
+
+    {# Load the tag library #}
+    {% load bootstrap4 %}
+
+    {# Load CSS and JavaScript #}
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+</head>
+
+<style>
+    .font {
+        font-family: Microsoft JhengHei;
+    }
+
+    .bordertype {
+        border-radius: 10px;
+        border-color: white;
+        background-color: white;
+        padding: 5px;
+        margin: 10px;
+    }
+
+    .title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        background-color: #003344
+    }
+
+    
+</style>
+
+<body class="font " style="background-color: #f0f0f0">
+    <div class="container-fluid">
+        {% bootstrap_messages %}
+        {% block main %}{% endblock %}
+    </div>
+</body>
+
+
+
+
+</html>

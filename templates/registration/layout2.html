@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Homeset</title>
+
+    {# Load the tag library #}
+    {% load bootstrap4 %}
+
+    {# Load CSS and JavaScript #}
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+</head>
+
+<style>
+    .font {
+        font-family: Microsoft JhengHei;
+    }
+
+    .bordertype {
+        border-radius: 10px;
+        border-color: white;
+        background-color: white;
+        padding: 5px;
+        margin: 10px;
+    }
+
+    .title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        background-color: #003344;
+    }
+
+    /* .button1 {
+        border-radius: 12px;
+        background-color:white;
+        border: none;
+        color: #003344;
+        padding: 10px;
+    } */
+
+
+    .button {
+      
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 15px;
+        margin: 4px 2px;
+        -webkit-transition-duration: 0.4s;
+        /* Safari */
+        transition-duration: 0.4s;
+        cursor: pointer;
+        border-radius: 12px;
+    }
+
+    .button1 {
+        background-color:#003344;
+        color: white;
+        border: 2px solid white;
+    }
+    .button1:hover {
+        background-color:white;
+        color:#003344;
+    }
+</style>
+
+<body class="font " style="background-color:#003344">
+    <div class="container-fluid">
+        {% bootstrap_messages %}
+        {% block main %}{% endblock %}
+    </div>
+</body>
+
+
+
+
+</html>
