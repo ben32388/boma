@@ -3,7 +3,7 @@ title: boma網頁專題作引用
 tags: python, note, django
 ---
 ## boma網頁專題作業引用步驟
-### 一、pipenv
+### 一、
 1. 到專案資料夾右鍵開啟 **Git bash** 或命令提示字元cmd
 2. 輸入： **pip install pipenv**
 3. 建立虛擬環境-產生Python 3虛擬環境： **pipenv --three** 
