@@ -8,15 +8,16 @@
     <div class="sidebar-logo center">
         <img src="static/img/logo.jpg" class="logo-img">
     </div>
-    <div class="sidebar-line">
+    <div class="sidebar-line1">
         &nbsp;
     </div>
     <div class="sidebar-head">
-        新增 BoMarK
+        新增書籤
     </div>
-    <div class="sidebar-line">
+    <div class="sidebar-line1">
         &nbsp;
     </div>
+    <br>
     <div class="sidebar-content">
         <form action="" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
@@ -67,13 +68,11 @@
 <div class="content-container">
     <div class="container-fluid">
         <div class="jumbotron text-center">
-            <h1>apple 的 BoMA</h1>
-            <div class="sidebar-line">
-                &nbsp;
-            </div>
+            <h1>apple 的 BOMA</h1>
+            
             <br>
             <div class="row padding-top">
-                <div class="col-6">
+                <div class="col-10">
                     <div class="input-group mb-4">
                         <input type="search" aria-describedby="button-addon5" class="form-control">
                         <div class="input-group-append">
@@ -82,14 +81,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-2">
                     <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary">新增類別
                     </button>
                 </div>
             </div>
-            <div class="sidebar-line">
-                &nbsp;
-            </div>
+           
             <br>
             <div class="row ">
                 <div class="col-8 folder-style">
@@ -98,9 +95,7 @@
                     </a>
                 </div>
             </div>
-            <div class="sidebar-line">
-                    &nbsp;
-                </div>
+           
             <div class="row ">
                     <div class="col-8 folder-style folder-pad">
                         <a href="#">

@@ -5,7 +5,7 @@
     left: 0;
     overflow-x: hidden;
     overflow-y: auto;
-    background-color: rgba(248, 248, 248, 0.863);
+    background-color: #99c1fc;
     color: black;
   }
 
@@ -39,7 +39,7 @@
 }
 
 .logo-img{
-    width: 240px;
+    width: 250px;
     height: 200px;
     padding-left: 50px;
 }
@@ -62,7 +62,13 @@
 
 .sidebar-line{
     height: 5px;
-    background-color: white;
+    background-color:white;
+    font-family: monospace;
+}
+
+.sidebar-line1{
+    height: 5px;
+    background-color:rgb(231, 151, 85);
     font-family: monospace;
 }
 
@@ -96,6 +102,8 @@
 
 .content-container {
     padding-left: 320px;
+    background-color: yellow;
+    
 }
 
 .form-control:focus {
