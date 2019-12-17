@@ -14,6 +14,6 @@ def page_show(request):
         planar.user_id = request.user.pk
         planar.save()
         form.save_m2m()
-    return render(request,'home.html', {
+    return render(request,'content.html', {
         'pages' : pages, 'form' : form,
     })
