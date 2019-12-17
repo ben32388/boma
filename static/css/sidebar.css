@@ -40,14 +40,9 @@
 }
 
 .logo-img{
-<<<<<<< HEAD
-    width: 250px;
-    height: 200px;
-    padding-left: 50px;
-=======
+
     width: 320px; 
     height: 200px; 
->>>>>>> origin/stella
 }
 
 
@@ -68,19 +63,18 @@
 }
 
 .sidebar-line{
-<<<<<<< HEAD
-    height: 5px;
-    background-color:white;
+
+    height: 5px;  
+    background-color: white;
+
     font-family: monospace;
 }
 
+
 .sidebar-line1{
-    height: 5px;
-    background-color:rgb(231, 151, 85);
-=======
+
     height: 5px;  
-    background-color: white;
->>>>>>> origin/stella
+    background: rgb(231, 151, 85);
     font-family: monospace;
 }
 
