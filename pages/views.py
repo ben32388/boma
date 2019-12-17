@@ -7,7 +7,7 @@ def page_show(request):
     # pages 為陣列
     pages = Page.objects.filter(user_id=request.user.pk)
     # 第一筆資料所有tag中的第一筆的id
-    print(pages[0].tags.all()[0].id)
+    # print(pages[0].tags.all()[0].id)
     form = PageForm(request.POST or None)
     if form.is_valid():
         planar = form.save(commit=False)
