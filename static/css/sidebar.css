@@ -10,7 +10,7 @@
     left: 0;
     overflow-x: hidden;
     overflow-y: auto;
-    background-color: rgba(248, 248, 248, 0.863);
+    background-color: #99c1fc;
     color: black;
 }
 
@@ -45,6 +45,7 @@
 }
 
 .logo-img{
+
     width: 320px; 
     height: 200px; 
 }
@@ -67,8 +68,18 @@
 }
 
 .sidebar-line{
+
     height: 5px;  
     background-color: white;
+
+    font-family: monospace;
+}
+
+
+.sidebar-line1{
+
+    height: 5px;  
+    background: rgb(231, 151, 85);
     font-family: monospace;
 }
 
@@ -102,6 +113,8 @@
 
 .content-container {
     padding-left: 320px;
+    background-color: yellow;
+    
 }
 
 .form-control:focus {
