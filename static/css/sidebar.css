@@ -31,6 +31,7 @@
 
 .content-container {
     padding-bottom: 5px;
+    height:100%;
 }
 
 .sidebar-logo {
@@ -39,10 +40,10 @@
 }
 
 .logo-img{
-    width: 240px;
-    height: 200px;
-    padding-left: 50px;
+    width: 320px; 
+    height: 200px; 
 }
+
 
 .sidebar-head{
     color:white;
@@ -56,12 +57,12 @@
 .sidebar-content{
     color:white;
     background-color: #99c1fc;
-    height: auto;
+    height:100%;
     padding: 0px 20px 0px 20px;
 }
 
 .sidebar-line{
-    height: 5px;
+    height: 5px;  
     background-color: white;
     font-family: monospace;
 }
