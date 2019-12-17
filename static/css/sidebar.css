@@ -4,6 +4,7 @@
 
 
 .sidebar-container {
+    border-radius: 30px;
     position: fixed;
     width: 320px;
     height: 100%;
@@ -25,7 +26,7 @@
 .jumbotron {
     padding: 1rem 2rem;
     margin-bottom: 0rem;
-    background-color: #e9ecef;
+    background-color: antiquewhite;
     border-radius: .3rem;
 }
 
@@ -113,7 +114,7 @@
 
 .content-container {
     padding-left: 320px;
-    background-color: yellow;
+    background-color: #fff;
     
 }
 
@@ -140,6 +141,11 @@
 .folder-button{
     padding-top: 5px;
 
+}
+
+.folder-name{
+    background-color: bisque;
+    border-radius: 10px;
 }
 
 .form-control {
