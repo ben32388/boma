@@ -3,25 +3,73 @@
 {% load static %}
 {% block main %}
 
-<div class="sidebar-container">
-    <div class="sidebar-logo center">
-        <img src="static/img/logo.jpeg" class="logo-img">
+
+<div class="sidebar-container"> 
+    <div class="sidebar-logo center"> 
+        <img src="static/img/logo.jpg" class="logo-img">
     </div>
 
-    <div class="sidebar-centent">
+    <div class="sidebar-content">
+        <div class="row">
+            <div class="col folder-style">
+                <a href="#">
+                    <i class="icon ion-md-folder"></i> XXX
+                </a>
+            </div>
+        </div>
+
         <div class="col-8 folder-style folder-pad">
             <a href="#">
-                <i class="icon ion-md-folder"></i> XXX
+                <i class="icon ion-md-bookmark"></i> XXX
             </a>
         </div>
 
+    </div>
+</div>
 
-
-
-
-
-
-
+<div class="content-container">
+    <div class="container-fluid">
+        <div class="jumbotron text-center">
+            <h1>資料夾名稱</h1>
+            <div class="sidebar-line">
+                &nbsp;
+            </div>
+            <div class="sidebar-line">
+                &nbsp;
+            </div>
+            <br>
+            <div class="row ">
+                <div class="col-8 folder-style">
+                    <a href="#">
+                        <i class="icon ion-md"></i>資料夾名稱1
+                    </a>
+                </div>
+            </div>
+            <div class="sidebar-line">
+                    &nbsp;
+                </div>
+            <div class="row ">
+                    <div class="col-8 folder-style folder-pad">
+                        <a href="#">
+                            <i class="icon ion-md"></i>資料夾名稱2
+                        </a>
+                    </div>
+                    <div class="col-4">
+                        <div class="row folder-button">
+                            <div class="col">
+                                <button type="submit" class="btn btn-primary">刪除
+                                </button>
+                            </div>
+                            <div class="col">
+                                <button type="submit" class="btn btn-primary">重新命名
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
 
 
 

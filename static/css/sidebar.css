@@ -31,6 +31,7 @@
 
 .content-container {
     padding-bottom: 5px;
+    height:100%;
 }
 
 .sidebar-logo {
@@ -39,10 +40,16 @@
 }
 
 .logo-img{
+<<<<<<< HEAD
     width: 250px;
     height: 200px;
     padding-left: 50px;
+=======
+    width: 320px; 
+    height: 200px; 
+>>>>>>> origin/stella
 }
+
 
 .sidebar-head{
     color:white;
@@ -56,11 +63,12 @@
 .sidebar-content{
     color:white;
     background-color: #99c1fc;
-    height: auto;
+    height:100%;
     padding: 0px 20px 0px 20px;
 }
 
 .sidebar-line{
+<<<<<<< HEAD
     height: 5px;
     background-color:white;
     font-family: monospace;
@@ -69,6 +77,10 @@
 .sidebar-line1{
     height: 5px;
     background-color:rgb(231, 151, 85);
+=======
+    height: 5px;  
+    background-color: white;
+>>>>>>> origin/stella
     font-family: monospace;
 }
 
