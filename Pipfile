@@ -9,6 +9,7 @@ verify_ssl = true
 requests = "*"
 django = "*"
 django-taggit = "*"
+django-bootstrap4 = "*"
 
 [requires]
 python_version = "3.7"
