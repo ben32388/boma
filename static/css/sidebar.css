@@ -1,3 +1,8 @@
+*{
+    font-family: 微軟正黑體;
+}
+
+
 .sidebar-container {
     position: fixed;
     width: 320px;
@@ -7,7 +12,7 @@
     overflow-y: auto;
     background-color: rgba(248, 248, 248, 0.863);
     color: black;
-  }
+}
 
 @media (min-width: 576px){
     .jumbotron {
