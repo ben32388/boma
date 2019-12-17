@@ -16,12 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from folders import views as folders_views
+from pages import views as pages_views
 from django.contrib.auth.views import LoginView, LogoutView
 from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', folders_views.folder_show, name='folder_show'),
+    path('', folders_views.index, name='index'),
     path('login/', LoginView.as_view(
         redirect_authenticated_user=True,
     ), name='login'),
