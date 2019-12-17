@@ -46,17 +46,18 @@
 
 .sidebar-head{
     color:white;
-    padding:22px 0px 0px 28px;
+    padding:5px 0px 0px 28px;
     font-size: 2rem;
     background: rgb(231, 151, 85);
     font-family: monospace;
-    height: 80px;
+    height: 50px;
 }
 
 .sidebar-content{
     color:white;
     background-color: #99c1fc;
-    height: 100%;
+    height: auto;
+    padding: 0px 20px 0px 20px;
 }
 
 .sidebar-line{
@@ -121,3 +122,23 @@
     padding-top: 5px;
 
 }
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(2.25rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  .bootstrap-tagsinput{
+    min-height: 48px;
+    height: auto;
+  }
