@@ -163,7 +163,18 @@
     border-radius: 0.25rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   }
-  .bootstrap-tagsinput{
+
+.bootstrap-tagsinput {
     min-height: 48px;
     height: auto;
   }
+
+/* .tagscroll {
+    flex: 1 auto;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+  } */
+

@@ -23,7 +23,11 @@
             {% csrf_token %}
             {% bootstrap_form pageform %}
             {% buttons %}
-
+            <div id="taglist" style="display: none;" class="tagscroll">
+            {% for mt in tags %}
+                <a href="#" class="badge badge-success" onclick="addtag('{{mt}}')">{{mt}}</a>
+            {% endfor %}
+            </div>
             <button type="submit" class="btn btn-primary">
                 確定
             </button>
@@ -137,7 +141,7 @@
                     {% bootstrap_form folderform %}
 
                     {% buttons %}
-                    <button type="submit" class="btn btn-primary">確認
+                    <button type="submit" class="btn btn-primary" >確認
                     </button>
                     {% endbuttons %}
                 </form>
@@ -148,7 +152,17 @@
 </div>
 
 <script>
-$("#id_tags").attr({"data-role":"tagsinput"})
+$("#id_tags").addClass( "tagsinput" );
+$('#id_tags').tagsInput();
 $("small").css('display', 'none');
+$('#id_tags_tagsinput').css({'width':'auto','height':'auto','min-height':'auto'});
+$("#id_tags_tagsinput").attr({"onclick":"taglist()"})
+function taglist(){
+    $("#taglist").css('display', 'block');
+}
+function addtag(tag){
+    if (!$('#id_tags').tagExist(tag)) {$('#id_tags').addTag(tag);}
+
+}
 </script>
 {% endblock %}

@@ -9,7 +9,7 @@ def register(request):
         user = form.save()
         #註冊完直接登入
         login(request,user)
-        return redirect('folder_show')
+        return redirect('index')
     return render(request,'registration/register.html',{
         'form' : form,
     })
