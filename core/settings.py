@@ -127,3 +127,12 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+#Auth
+#LOGIN_URL 的路徑
+LOGIN_URL = '/login/'
+
+#登入後導向
+# LOGIN_REDIRECT_URL = '/planargraphs/planargraph_show/'
+
+#登出後導向
+# LOGOUT_REDIRECT_URL = '/planargraphs/planargraph_show/'
