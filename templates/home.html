@@ -5,24 +5,29 @@
 
 
 <div class="sidebar-container">
-    <div class="sidebar-logo center">
+    <div class="sidebar-logo center"> 
         <img src="static/img/logo.jpg" class="logo-img">
     </div>
-    <div class="sidebar-line">
+    <div class="sidebar-line1">
         &nbsp;
     </div>
     <div class="sidebar-head">
-        新增 BoMarK
+        新增書籤
     </div>
-    <div class="sidebar-line">
+    <div class="sidebar-line1">
         &nbsp;
     </div>
+    <br>
     <div class="sidebar-content">
         <form action="" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {% bootstrap_form pageform %}
             {% buttons %}
-
+            <div id="taglist" style="display: none;" class="tagscroll">
+            {% for mt in tags %}
+                <a href="#" class="badge badge-success" onclick="addtag('{{mt}}')">{{mt}}</a>
+            {% endfor %}
+            </div>
             <button type="submit" class="btn btn-primary">
                 確定
             </button>
@@ -67,13 +72,11 @@
 <div class="content-container">
     <div class="container-fluid">
         <div class="jumbotron text-center">
-            <h1>apple 的 BoMA</h1>
-            <div class="sidebar-line">
-                &nbsp;
-            </div>
+            <h1>apple's BOMA</h1>
+            
             <br>
             <div class="row padding-top">
-                <div class="col-6">
+                <div class="col-10">
                     <div class="input-group mb-4">
                         <input type="search" aria-describedby="button-addon5" class="form-control">
                         <div class="input-group-append">
@@ -82,44 +85,42 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-2">
                     <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary">新增類別
                     </button>
                 </div>
             </div>
-            <div class="sidebar-line">
-                &nbsp;
-            </div>
+           
             <br>
-            <div class="row ">
-                <div class="col-8 folder-style">
-                    <a href="#">
-                        <i class="icon ion-md-folder"></i> 我的最愛
-                    </a>
-                </div>
-            </div>
-            <div class="sidebar-line">
-                    &nbsp;
-                </div>
-            <div class="row ">
-                    <div class="col-8 folder-style folder-pad">
+            <div class="folder-name">
+                <div class="row ">
+                    <div class="col-8 folder-style">
                         <a href="#">
-                            <i class="icon ion-md-folder"></i> XXX
+                            <i class="icon ion-md-folder"></i> 我的最愛
                         </a>
                     </div>
-                    <div class="col-4">
-                        <div class="row folder-button">
-                            <div class="col">
-                                <button type="submit" class="btn btn-primary">刪除
-                                </button>
-                            </div>
-                            <div class="col">
-                                <button type="submit" class="btn btn-primary">重新命名
-                                </button>
+                </div>
+           
+                <div class="row ">
+                        <div class="col-8 folder-style folder-pad">
+                            <a href="#">
+                                <i class="icon ion-md-folder"></i> XXX
+                            </a>
+                        </div>
+                        <div class="col-4">
+                            <div class="row folder-button">
+                                <div class="col">
+                                    <button type="submit" class="btn btn-primary">刪除
+                                    </button>
+                                </div>
+                                <div class="col">
+                                    <button type="submit" class="btn btn-primary">重新命名
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -140,7 +141,7 @@
                     {% bootstrap_form folderform %}
 
                     {% buttons %}
-                    <button type="submit" class="btn btn-primary">確認
+                    <button type="submit" class="btn btn-primary" >確認
                     </button>
                     {% endbuttons %}
                 </form>
@@ -151,7 +152,17 @@
 </div>
 
 <script>
-$("#id_tags").attr({"data-role":"tagsinput"})
+$("#id_tags").addClass( "tagsinput" );
+$('#id_tags').tagsInput();
 $("small").css('display', 'none');
+$('#id_tags_tagsinput').css({'width':'auto','height':'auto','min-height':'auto'});
+$("#id_tags_tagsinput").attr({"onclick":"taglist()"})
+function taglist(){
+    $("#taglist").css('display', 'block');
+}
+function addtag(tag){
+    if (!$('#id_tags').tagExist(tag)) {$('#id_tags').addTag(tag);}
+
+}
 </script>
 {% endblock %}
