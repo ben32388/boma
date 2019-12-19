@@ -2,7 +2,10 @@
     font-family: 微軟正黑體;
 }
 
+html{
 
+    background-color:rgb(250, 234, 191);
+}
 .sidebar-container {
     border-radius: 30px;
     position: fixed;
@@ -10,7 +13,7 @@
     height: 100%;
     left: 0;
     background-color: #99c1fc;
-    color: black;
+    color:white;
     overflow-x: hidden;
     overflow-y: auto;
 }
@@ -19,20 +22,32 @@
     .jumbotron {
         padding: 1rem 2rem;
         font-family: monospace;
-
+        
     }  
 }
+
 
 .jumbotron {
     padding: 1rem 2rem;
     margin-bottom: 0rem;
-    background-color: antiquewhite;
+    background-color:rgb(250, 234, 191);
+    border-radius: .3rem;
+}
+
+.jumb{
+    
+    padding: 1rem 2rem;
+    margin-bottom: 0rem;
+    background-color:rgb(245, 193, 135);
     border-radius: .3rem;
 }
 
 .container-fluid {
     padding-right: 0px;
     padding-left: 0px;
+    background-color:rgb(250, 234, 191);
+    
+
 }
 
 .content-container {
@@ -43,12 +58,15 @@
 .sidebar-logo {
     height: 200px;
     background-color:#e9ecef;
+  
 }
 
-.logo-img{
+.img logo-img{
 
     width: 320px; 
     height: 200px; 
+   
+    
 }
 
 
@@ -60,6 +78,8 @@
     font-family: monospace;
     height:50px;
 }
+
+
 
 .sidebar-content{
     background-color: #99c1fc;
@@ -99,7 +119,7 @@
 }
 
 .btn-primary {
-    width: 95%;
+    width: 80%;
     color: #fff;
     background-color: rgb(233, 199, 107);
     border-color: rgb(255, 229, 157);
@@ -112,7 +132,7 @@
 
 .content-container {
     padding-left: 320px;
-    background-color: #fff;
+    background-color:rgb(250, 234, 191);
     
 }
 
