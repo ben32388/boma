@@ -7,3 +7,4 @@ class FolderForm(forms.ModelForm):
     class Meta:
         model = Folder
         fields = ('title',)
+

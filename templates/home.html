@@ -5,8 +5,8 @@
 
 
 <div class="sidebar-container">
-    <div class="sidebar-logo center"> 
-        <img src="static/img/logo.jpeg" class="logo-img">
+    <div class="sidebar-logo center outer">
+        <img src="static/img/logo.jpeg" width="200" height="200" class="logo-img">
     </div>
     <div class="sidebar-line1">
         &nbsp;
@@ -18,71 +18,50 @@
         &nbsp;
     </div>
     <br>
+    <!-- 新增書籤 -->
     <div class="sidebar-content">
         <form action="" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {% bootstrap_form pageform %}
             {% buttons %}
             <div id="taglist" style="display: none;" class="tagscroll">
-            {% for mt in tags %}
+                {% for mt in tags %}
                 <a href="#" class="badge badge-success" onclick="addtag('{{mt}}')">{{mt}}</a>
-            {% endfor %}
+                {% endfor %}
             </div>
             <button type="submit" class="btn btn-primary">
                 確定
             </button>
             {% endbuttons %}
         </form>
-        {% comment %} <div class="sidebar-font-title">
-            名稱
-        </div>
-        <div class="sidebar-font-content">
-            <input>
-        </div>
-        <div class="sidebar-font-title">
-            網址
-        </div>
-        <div class="sidebar-font-content">
-            <input>
-        </div>
-        <div class="sidebar-font-title">
-            類別
-        </div>
-        <div class="sidebar-font-content">
-            <div class="btn-group">
-                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    資料夾類別放這邊
-                </button>
-            </div>
-        </div>
-        <div class="sidebar-font-title">
-            標籤
-        </div>
-        <div class="sidebar-font-content">
-            <input>
-        </div>
-        <div class="sidebar-button">
-            <button type="submit" class="btn btn-primary">確認
-            </button>
-        </div> {% endcomment %}
+
     </div>
 </div>
-
+<!-- 顯示類別 -->
 <div class="content-container">
     <div class="container-fluid">
         <div class="jumbotron text-center">
-            <h1>apple's BOMA</h1>
-            
+            <h1>{{username}} BOMA</h1>
             <br>
             <div class="row padding-top">
                 <div class="col-10">
                     <div class="input-group mb-4">
-                        <input type="search" aria-describedby="button-addon5" class="form-control">
+                        <form action="" method="get" style="display:flex;justify-content: center;align-items: center;width:100%;">
+                            <input type="search" name="q" placeholder="" class="form-control" style="margin-top: auto;margin-bottom: auto;margin-left:50px;margin-right:20px; border-radius: 20px;
+                              border-color: transparent;">
+                            <div class="input-group-append">
+                                <button id="button-addon5" type="submit" class="btn btn-primary">
+                                    <i class="icon ion-md-search"></i></button>
+                            </div>
+                        </form>
+
+
+
+                        <!-- <input type="search" aria-describedby="button-addon5" class="form-control">
                         <div class="input-group-append">
                             <button id="button-addon5" type="submit" class="btn btn-primary">
                                 <i class="icon ion-md-search"></i></button>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="col-2">
@@ -91,46 +70,94 @@
                 </div>
             </div>
             <div class="folder-name">
-                <br>
-                <div class="row ">
-                    <div class="col-8 folder-style">
-                        <a href="#">
-                            <i class="icon ion-md-folder"></i> 我的最愛
-                        </a>
-                    </div>
-                </div>
+
+                {% for folder in folders %}
                 <br>
                 <div class="row ">
                     <div class="col-8 folder-pad">
-                        <a href="#">
-                            <i class="icon ion-md-folder"></i> XXX
+                        <a href="{% url 'page_show' folder.id %}">
+                            <i class="icon ion-md-folder"></i> {{folder.title}}
                         </a>
                     </div>
-                        <div class="col-4">
-                            <div class="row folder-button">
-                                <div class="col">
-                                    <button type="submit" class="btn btn-primary">刪除
-                                    </button>
-                                </div>
-                                <div class="col">
-                                    <button type="submit" class="btn btn-primary">重新命名
-                                    </button>
-                                </div>
+                    <div class="col-4">
+                        <div class="row folder-button">
+                            <div class="col">
+                                <button type="button" data-toggle="modal" data-target="#delete{{folder.id}}"
+                                    class="btn btn-primary">刪除
+                                </button>
                             </div>
-                            <br>
+                            <div class="col">
+                                <button type="button" data-toggle="modal" data-target="#rename{{folder.id}}"
+                                    class="btn btn-primary">重新命名
+                                </button>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+
+                <!-- 編輯類別名字互動視窗 -->
+                <div class=" modal fade mt-5" id="rename{{folder.id}}" tabindex="-1" role="dialog"
+                    aria-labelledby="rename" aria-hidden="true">
+                    <div class="modal-dialog " role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" style=color:black>編輯類別名稱</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="" method="GET">
+                                    <div class="form-group">
+                                        <label for="title{{folder.id}}">名稱</label>
+                                        <input type="text" name="title" value="{{folder.title}}" id="title{{folder.id}}"
+                                            class="form-control" placeholder="" required>
+                                    </div>
+                                    <input type="hidden" name="id" value="{{folder.id}}">
+                                    <button class="btn btn-primary" type="submit">完成</button>
+                                </form>
+                            </div>
+
                         </div>
                     </div>
+                </div>
+
+                <!-- 刪除類別互動視窗 -->
+                <div class=" modal fade mt-5" id="delete{{folder.id}}" tabindex="-1" role="dialog"
+                    aria-labelledby="delete" aria-hidden="true">
+                    <div class="modal-dialog " role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" style=color:black>刪除{{folder.title}}類別</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>你確定要刪除嗎?</p>
+                                <a class="btn btn-info" style="display: inline;" data-dismiss="modal" href="#"
+                                    role="button">取消</a>
+                                <a class="btn btn-info" style="display: inline;"
+                                    href="{% url 'folder_delete' folder.id%}" role="button">刪除</a>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
 </div>
-
+<!-- 新增類別互動視窗 -->
 <div class=" modal fade mt-5" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog " role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel" style=color:black>新增資料夾</h5>
+                <h5 class="modal-title" id="exampleModalLabel" style=color:black>新增類別</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -141,7 +168,7 @@
                     {% bootstrap_form folderform %}
 
                     {% buttons %}
-                    <button type="submit" class="btn btn-primary" >確認
+                    <button type="submit" class="btn btn-primary">確認
                     </button>
                     {% endbuttons %}
                 </form>
@@ -152,17 +179,17 @@
 </div>
 
 <script>
-$("#id_tags").addClass( "tagsinput" );
-$('#id_tags').tagsInput();
-$("small").css('display', 'none');
-$('#id_tags_tagsinput').css({'width':'auto','height':'auto','min-height':'auto'});
-$("#id_tags_tagsinput").attr({"onclick":"taglist()"})
-function taglist(){
-    $("#taglist").css('display', 'block');
-}
-function addtag(tag){
-    if (!$('#id_tags').tagExist(tag)) {$('#id_tags').addTag(tag);}
+    $("#id_tags").addClass("tagsinput");
+    $('#id_tags').tagsInput();
+    $("small").css('display', 'none');
+    $('#id_tags_tagsinput').css({ 'width': 'auto', 'height': 'auto', 'min-height': 'auto' });
+    $("#id_tags_tagsinput").attr({ "onclick": "taglist()" })
+    function taglist() {
+        $("#taglist").css('display', 'block');
+    }
+    function addtag(tag) {
+        if (!$('#id_tags').tagExist(tag)) { $('#id_tags').addTag(tag); }
 
-}
+    }
 </script>
 {% endblock %}

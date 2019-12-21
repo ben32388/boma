@@ -149,7 +149,7 @@ html{
 .folder-style{
     font-size: 22px;
     text-align:center;
-    padding-left:40px;
+    /* padding-left:40px; */
 }  
 
 .folder-pad{
@@ -185,11 +185,17 @@ html{
     border-radius: 0.25rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   }
-  .bootstrap-tagsinput{
+.bootstrap-tagsinput{
     min-height: 48px;
     height: auto;
   }
-
+.outer{
+    text-align: center;
+}
+.sidebar-style{
+    padding-left:30px;
+    font-size: 22px;
+}
 /* .tagscroll {
     flex: 1 auto;
     display: flex;
