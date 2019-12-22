@@ -23,7 +23,14 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', folders_views.index, name='index'),
-    path('test/', pages_views.page_show, name='page_show'),
+    path('folders/', folders_views.search, name='search_view'),
+    path('folders/<int:pk>/', folders_views.page_show, name='page_show'),
+    path('folders/<int:pk>/delete/', folders_views.folder_delete, name='folder_delete'),
+    path('folders/<int:fpk>/pages/<int:pk>/delete/', folders_views.page_delete, name='page_delete'),
+    path('folders/pages/<int:pk>/delete/', folders_views.search_delete, name='search_delete'),
+    path('tags/<int:pk>/', folders_views.tag_show, name='tag_show'),
+    path('tags/<int:tpk>/pages/<int:pk>/delete/', folders_views.tag_page_delete, name='tag_page_delete'),
+    # path('test/', pages_views.page_show, name='page_show'),
     path('login/', LoginView.as_view(
         redirect_authenticated_user=True,
     ), name='login'),

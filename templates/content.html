@@ -4,96 +4,187 @@
 {% block main %}
 
 
-<div class="sidebar-container"> 
-    <div class="sidebar-logo center"> 
-        <img src="static/img/logo.jpeg"class="logo-img">
+<div class="sidebar-container">
+    <div class="sidebar-logo center outer">
+        <a href="{% url 'index'%}">
+            <img src="/static/img/logo.png" width="200" height="200" class="logo-img">
+        </a>
+
     </div>
-    
+
     <div class="sidebar-content">
-        <div class="folder-n">
-            Folder
+        <form action="" method="get" style="display:flex;justify-content: center;align-items: center;width:100%;margin-top: 20px;">
+            <input type="search" name="q" placeholder="" class="form-control" style="margin-top: auto;margin-bottom: auto;margin-left:50px;margin-right:20px; border-radius: 20px;
+              border-color: transparent;">
+            <div class="input-group-append">
+                <button id="button-addon5" type="submit" class="btn btn-primary">
+                    <i class="icon ion-md-search"></i></button>
+            </div>
+        </form>
+        <div style="padding-top:20px;">
+            <h4>類別</h4>
         </div>
         <div class="row">
-            <div class="col folder-style">
-                <a href="#">
-                    <i class="icon ion-md-folder"></i> 資料夾名稱
+            <div class="col sidebar-style">
+                {% for folder in folders %}
+                <a href="{% url 'page_show' folder.id %}">
+                    <i class="icon ion-md-folder"></i> {{folder.title}}
                 </a>
+                <br />
+                {% endfor %}
             </div>
+
         </div>
-        <br>
-        <div class="folder-n">
-            Tags
-        </div>
-        <div class="col folder-style">
-            <a href="#">
-                <i class="icon ion-md-bookmark"></i> 標籤名稱
-            </a>
+        <hr>
+        <h4>標籤</h4>
+        <div class="row">
+            <div class="col sidebar-style">
+                {% for mt in tags %}
+                <a href="{% url 'tag_show' mt.id %}">
+                    <i class="icon ion-md-bookmark"></i> {{mt}}
+                </a>
+                <br />
+                {% endfor %}
+            </div>
         </div>
     </div>
 </div>
 
 <div class="content-container">
     <div class="container-fluid">
-<<<<<<< HEAD
-        <div class="jumbotron text-center">
-            <h3>資料夾名稱</h3>
-            <div class="sidebar-line">
-                &nbsp;
+        <div style="position:relative;">
+            <div class="jumb text-center">
+                <h2>{{folder}}</h2>
             </div>
-=======
-        <div class="jumb text-center">
-            <h2>資料夾名稱</h2>
+            <button type="button" style="position: absolute;right: 80px;top: 15px;width: 100px;" data-toggle="modal"
+                data-target="#addpage" class="btn btn-primary">新增書籤
+            </button>
         </div>
-           
->>>>>>> origin/apple7032
-            <div class="sidebar-line">
-                &nbsp;
+        {% for page in pages %}
+        <div class="sidebar-line">
+            &nbsp;
+        </div>
+        <br>
+        <div class="row ">
+            <div class="col-4 folder-style">
+                <a target="_blank" href="{{page.url}}">
+                    <i class="icon ion-md"></i>{{page.name}}
+                </a>
             </div>
-            <br>
-            <div class="row ">
-                <div class="col-8 folder-style">
-                    <a href="#">
-                        <i class="icon ion-md"></i>連結名稱1
-                    </a>
-                </div>
-                <div class="col-4">
-                        <div class="row folder-button">
-                            <div class="col">
-                                <button type="submit" class="btn btn-primary">刪除
-                                </button>
-                            </div>
-                            <div class="col">
-                                <button type="submit" class="btn btn-primary">重新命名
-                                </button>
-                            </div>
-                        </div>
-                </div>
+            <div class="col-4 folder-style">
+                {% for mt in page.tags.all %}
+                <a href="{% url 'tag_show' mt.id %}" class="badge badge-pill badge-info">{{mt}}</a>
+                {% endfor %}
             </div>
-            <br>
-        
-            <div class="row ">
-                <div class="col-8 folder-style">
-                    <a href="#">
-                        <i class="icon ion-md"></i>連結名稱2    
-                    </a>
-                </div>
-                <div class="col-4">
-                        <div class="row folder-button">
-                            <div class="col">
-                                <button type="submit" class="btn btn-primary">刪除
-                                </button>
-                            </div>
-                            <div class="col">
-                                <button type="submit" class="btn btn-primary">重新命名
-                                </button>
-                            </div>
-                        </div>
+            <div class="col-4">
+                <div class="row folder-button">
+                    <div class="col">
+                        <a class="btn btn-primary" style="display: inline;" href="pages/{{page.id}}/delete/?q={{q}}"
+                            role="button">刪除</a>
+                    </div>
+                    <div class="col">
+                        <a class="btn btn-primary" style="display: inline;" href="?q={{q}}&id={{page.id}}" role="button">編輯</a>
+                    </div>
                 </div>
             </div>
-      
+        </div>
+        <br>
+        {% empty %}
+        <div style="display:flex;justify-content: center;align-items: center;height: 300px;">
+            <h4 style="color:rgb(114, 113, 113)"> 查無書籤</h4>
+        </div>
+        {% endfor %}
+
+
+
+        <!-- 編輯書籤互動視窗 -->
+        <div class=" modal fade mt-5" id="page_edit" tabindex="-1" role="dialog" aria-labelledby="page_edit"
+            aria-hidden="true" data-backdrop="static">
+            <div class="modal-dialog " role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" style=color:black>編輯書籤</h5>
+                    </div>
+                    <div class="modal-body">
+
+                        {% if pageform %}
+                        <form action="" method="POST">
+                            {% csrf_token %}
+                            {% bootstrap_form pageform %}
+                            <div style="display: none;" class="tagscroll taglist">
+                                {% for mt in tags %}
+                                <a href="#" class="badge badge-success" onclick="addtag('{{mt}}')">{{mt}}</a>
+                                {% endfor %}
+                            </div>
+                            {% buttons %}
+                            <button type="submit" class="btn btn-primary">確認
+                            </button>
+                            {% endbuttons %}
+                        </form>
+                        {% endif %}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 新增書籤互動視窗 -->
+
+<div class=" modal fade mt-5" id="addpage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog " role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel" style=color:black>新增書籤</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {% if pageform_add %}
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    {% bootstrap_form pageform_add %}
+
+                    <div style="display: none;" class="tagscroll taglist">
+                        {% for mt in tags %}
+                        <a href="#" class="badge badge-success" onclick="addtag('{{mt}}')">{{mt}}</a>
+                        {% endfor %}
+                    </div>
+                    {% buttons %}
+                    <button type="submit" class="btn btn-primary">確認
+                    </button>
+                    {% endbuttons %}
+                </form>
+                {% endif %}
+            </div>
+
+        </div>
     </div>
 </div>
 
 
+
+<script>
+    $("#id_tags").addClass("tagsinput");
+    $('#id_tags').tagsInput();
+    $("small").css('display', 'none');
+    $('#id_tags_tagsinput').css({ 'width': 'auto', 'height': 'auto', 'min-height': 'auto' });
+    $("#id_tags_tagsinput").attr({ "onclick": "taglist()" })
+    function taglist() {
+        $(".taglist").css('display', 'block');
+    }
+    function addtag(tag) {
+        if (!$('#id_tags').tagExist(tag)) { $('#id_tags').addTag(tag); }
+
+    }
+    let urlParams = new URLSearchParams(window.location.search);
+    var pageid = urlParams.get('id');
+    if (pageid) {
+        $('#page_edit').modal('show')
+    }
+</script>
 
 {% endblock %}

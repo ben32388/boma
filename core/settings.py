@@ -132,7 +132,7 @@ STATICFILES_DIRS = [
 LOGIN_URL = '/login/'
 
 #登入後導向
-# LOGIN_REDIRECT_URL = '/planargraphs/planargraph_show/'
+LOGIN_REDIRECT_URL = 'index'
 
 #登出後導向
-# LOGOUT_REDIRECT_URL = '/planargraphs/planargraph_show/'
+LOGOUT_REDIRECT_URL = 'index'
