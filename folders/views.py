@@ -99,7 +99,9 @@ def tag_show(request,pk):
     folders = Folder.objects.filter(user_id=request.user.pk)
     # folder = get_object_or_404(Folder, pk=pk,user_id=request.user.pk)
     tag = get_object_or_404(Tag, id=pk)
+    
     pages = Page.objects.filter(tags=tag,user_id=request.user.pk)
+    tag = "標籤 : "+tag.name
     # pages = Page.objects.filter(folder_id=pk,user_id=request.user.pk)
     pages_all = Page.objects.filter(user_id=request.user.pk)
     
