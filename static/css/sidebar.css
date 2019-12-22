@@ -2,10 +2,10 @@
     font-family: 微軟正黑體;
 }
 
-html{
+/*html{
 
     background-color:rgb(250, 234, 191);
-}
+}*/
 .sidebar-container {
     border-radius: 30px;
     position: fixed;
@@ -23,9 +23,12 @@ html{
         padding: 1rem 2rem;
         font-family: monospace;
         
-    }  
+    }   
 }
 
+.bg{
+    background-color: white;
+}
 
 .jumbotron {
     padding: 1rem 2rem;
@@ -132,7 +135,7 @@ html{
 
 .content-container {
     padding-left: 320px;
-    background-color:rgb(250, 234, 191);
+    
     
 }
 
@@ -154,11 +157,17 @@ html{
 
 .folder-pad{
     padding-top: 8px;
-    padding-left:0px;
-    font-size:22px;
+    padding-left:30px;
+    font-size:28px;
     
 }  
 
+
+.folder-button1{
+    padding-top: 32px;
+    padding-right: 20px;
+
+}
 
 .folder-button{
     padding-top: 5px;
@@ -205,3 +214,29 @@ html{
     overflow-y: hidden;
   } */
 
+    
+ 
+    .DIV2{
+    width:250px;
+    height: 300px;
+    line-height:50px;
+    padding:20px;
+    float:left;
+    background-image: url('/static/img/2.png');
+    background-repeat: no-repeat;
+    background-size: 250px 300px;
+    }
+
+    .imagebg{
+        padding-top: 130px;
+    }
+
+    .DIV2 a {
+        color:  white;
+        text-decoration: none;
+        background-color:transparent;
+        font-size: 21px;
+        
+    }
+    
+     
