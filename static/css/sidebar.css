@@ -2,37 +2,52 @@
     font-family: 微軟正黑體;
 }
 
+html{
 
+    background-color:rgb(250, 234, 191);
+}
 .sidebar-container {
     border-radius: 30px;
     position: fixed;
     width: 320px;
     height: 100%;
     left: 0;
+    background-color: #99c1fc;
+    color:white;
     overflow-x: hidden;
     overflow-y: auto;
-    background-color: #99c1fc;
-    color: black;
 }
 
 @media (min-width: 576px){
     .jumbotron {
         padding: 1rem 2rem;
         font-family: monospace;
-
+        
     }  
 }
+
 
 .jumbotron {
     padding: 1rem 2rem;
     margin-bottom: 0rem;
-    background-color: antiquewhite;
+    background-color:rgb(250, 234, 191);
+    border-radius: .3rem;
+}
+
+.jumb{
+    
+    padding: 1rem 2rem;
+    margin-bottom: 0rem;
+    background-color:rgb(245, 193, 135);
     border-radius: .3rem;
 }
 
 .container-fluid {
     padding-right: 0px;
     padding-left: 0px;
+    background-color:rgb(250, 234, 191);
+    
+
 }
 
 .content-container {
@@ -43,26 +58,30 @@
 .sidebar-logo {
     height: 200px;
     background-color:#e9ecef;
+  
 }
 
-.logo-img{
+.img logo-img{
 
     width: 320px; 
     height: 200px; 
+   
+    
 }
 
 
 .sidebar-head{
     color:white;
     padding:5px 0px 0px 28px;
-    font-size: 2rem;
+    font-size:30px;
     background: rgb(231, 151, 85);
     font-family: monospace;
-    height: 50px;
+    height:50px;
 }
 
+
+
 .sidebar-content{
-    color:white;
     background-color: #99c1fc;
     height:100%;
     padding: 0px 20px 0px 20px;
@@ -70,9 +89,8 @@
 
 .sidebar-line{
 
-    height: 5px;  
+    height:3px;  
     background-color: white;
-
     font-family: monospace;
 }
 
@@ -101,7 +119,7 @@
 }
 
 .btn-primary {
-    width: 95%;
+    width: 80%;
     color: #fff;
     background-color: rgb(233, 199, 107);
     border-color: rgb(255, 229, 157);
@@ -114,29 +132,33 @@
 
 .content-container {
     padding-left: 320px;
-    background-color: #fff;
+    background-color:rgb(250, 234, 191);
     
 }
 
 .form-control:focus {
     box-shadow: none;
-  }
-  
-  .form-control-underlined {
+}
+
+.form-control-underlined {
     border-width: 0;
     border-bottom-width: 1px;
     border-radius: 0;
     padding-left: 0;
-  }
+}
 .folder-style{
-    font-size: 23px;
-    text-align: left;
-    padding-left: 100px;
+    font-size: 22px;
+    text-align:center;
+    padding-left:40px;
 }  
 
 .folder-pad{
     padding-top: 8px;
+    padding-left:0px;
+    font-size:22px;
+    
 }  
+
 
 .folder-button{
     padding-top: 5px;
@@ -163,18 +185,7 @@
     border-radius: 0.25rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   }
-
-.bootstrap-tagsinput {
+  .bootstrap-tagsinput{
     min-height: 48px;
     height: auto;
   }
-
-/* .tagscroll {
-    flex: 1 auto;
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    overflow-x: auto;
-    overflow-y: hidden;
-  } */
-
